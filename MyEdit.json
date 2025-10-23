@@ -1,0 +1,66 @@
+{
+    "LeftRightShoot": {
+        "type": "BoolProperty",
+        "value": true
+    },
+    "IntelligentDrugs": {
+        "type": "BoolProperty",
+        "value": false
+    },
+    "Gyroscope": {
+        "type": "IntProperty",
+        "value": 5
+    },
+    "ArtQuality": {
+        "type": "IntProperty",
+        "value": 9
+    },
+    "CameraLensSensibility": {
+        "type": "IntProperty",
+        "value": 8
+    },
+    "FPSLevel": {
+        "type": "IntProperty",
+        "value": 10
+    },
+    "WallFeedBack": {
+        "type": "BoolProperty",
+        "value": false
+    },
+    "LimitBandage": {
+        "type": "IntProperty",
+        "value": 2
+    },
+    "LimitMedical": {
+        "type": "IntProperty",
+        "value": 1
+    },
+    "LimitFirstAidKit": {
+        "type": "IntProperty",
+        "value": 4
+    },
+    "BGMVolumSwitcher": {
+        "type": "BoolProperty",
+        "value": false
+    },
+    "MainVolumValue": {
+        "type": "FloatProperty",
+        "value": 1.0
+    },
+    "GameVersion": {
+        "type": "StrProperty",
+        "value": "3.7.0"
+    },
+    "FpViewValue": {
+        "type": "IntProperty",
+        "value": 110
+    },
+    "RedDotCHColor": {
+        "type": "IntProperty",
+        "value": 8
+    },
+    "HolographicCHColor": {
+        "type": "IntProperty",
+        "value": 8
+    }
+}
