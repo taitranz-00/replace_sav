@@ -1,0 +1,164 @@
+╔════════════════════════════════════════════════════════════════╗
+║                  SAV EDITOR - HƯỚNG DẪN NHANH                  ║
+╚════════════════════════════════════════════════════════════════╝
+
+🎯 3 LỆNH CHÍNH - SIÊU ĐỠN GIẢN
+════════════════════════════════════════════════════════════════
+
+1️⃣  SAV → JSON (để edit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+python sav_to_json.py Active.sav edit.json
+
+→ Tạo file JSON dễ đọc và chỉnh sửa
+
+
+2️⃣  EDIT JSON FILE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+notepad edit.json
+# hoặc
+code edit.json
+
+→ Sửa giá trị "value" trong file JSON
+
+
+3️⃣  JSON → SAV (tạo file mới)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+python json_to_sav.py edit.json Active.sav Active_new.sav
+
+→ Tạo file SAV mới với thay đổi
+
+
+4️⃣  SO SÁNH 2 FILE (check thay đổi)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+python compare_sav.py Active.sav Active_new.sav
+
+→ Xem có bao nhiêu thay đổi
+
+
+════════════════════════════════════════════════════════════════
+📝 VÍ DỤ EDIT JSON
+════════════════════════════════════════════════════════════════
+
+File edit.json:
+{
+  "Gyroscope": {
+    "type": "IntProperty",
+    "value": 5          ← Sửa đây (từ 1 → 5)
+  },
+  "FPSLevel": {
+    "type": "IntProperty",
+    "value": 10         ← Sửa đây (từ 8 → 10)
+  }
+}
+
+⚠️  CHÚ Ý:
+   - Chỉ sửa số sau "value"
+   - KHÔNG sửa "type"
+   - KHÔNG xóa dấu ngoặc {}
+
+
+════════════════════════════════════════════════════════════════
+🎮 CÁC SETTINGS PHỔ BIẾN
+════════════════════════════════════════════════════════════════
+
+Gyroscope           0-10    Độ nhạy gyro
+ArtQuality          0-9     Chất lượng đồ họa
+FPSLevel            0-10    Giới hạn FPS
+CameraLensSensibility 0-10  Độ nhạy camera
+LeftRightShoot      true/false  Bắn kép
+IntelligentDrugs    true/false  Tự động dùng thuốc
+MainVolumValue      0.0-1.0     Âm lượng
+
+
+════════════════════════════════════════════════════════════════
+⚡ WORKFLOW ĐẦY ĐỦ
+════════════════════════════════════════════════════════════════
+
+# Bước 1: Tạo JSON
+python sav_to_json.py Active.sav my_settings.json
+
+# Bước 2: Edit JSON bằng notepad
+notepad my_settings.json
+
+# Bước 3: Tạo SAV mới
+python json_to_sav.py my_settings.json Active.sav Active_modified.sav
+
+# Bước 4: Kiểm tra
+python compare_sav.py Active.sav Active_modified.sav
+
+
+════════════════════════════════════════════════════════════════
+📊 OUTPUT MẪU
+════════════════════════════════════════════════════════════════
+
+Khi chạy compare_sav.py:
+
+⚠️  PHÁT HIỆN 3 ĐIỂM KHÁC NHAU:
+Property              File 1    File 2
+─────────────────────────────────────
+Gyroscope             1         5
+ArtQuality            8         9
+FPSLevel              8         10
+
+📊 TỔNG KẾT:
+   - Properties khác nhau: 3
+   - Bytes khác nhau: 3
+
+
+════════════════════════════════════════════════════════════════
+💡 TIPS & TRICKS
+════════════════════════════════════════════════════════════════
+
+✅ Luôn backup file gốc trước khi edit
+✅ Test file mới trước khi dùng trong game
+✅ Dùng compare_sav.py để xác nhận thay đổi
+✅ Chỉ sửa giá trị, không sửa cấu trúc JSON
+
+❌ KHÔNG edit GameVersion (String property)
+❌ KHÔNG xóa hoặc thêm properties mới
+❌ KHÔNG sửa "type" field
+
+
+════════════════════════════════════════════════════════════════
+🆘 TROUBLESHOOTING
+════════════════════════════════════════════════════════════════
+
+Q: File JSON bị lỗi syntax?
+A: Kiểm tra dấu ngoặc {}, dấu phẩy cuối dòng
+
+Q: Không thấy thay đổi trong game?
+A: Đảm bảo đã copy file mới vào đúng folder
+
+Q: File SAV bị lỗi?
+A: Restore từ Active.sav.backup
+
+
+════════════════════════════════════════════════════════════════
+📁 CẤU TRÚC FILES
+════════════════════════════════════════════════════════════════
+
+sav_to_json.py       Script chuyển SAV → JSON
+json_to_sav.py       Script chuyển JSON → SAV
+compare_sav.py       Script so sánh 2 file SAV
+simple_editor.py     Script all-in-one (interactive)
+README.md            Tài liệu chi tiết
+USAGE.md             Hướng dẫn chi tiết
+QUICKSTART.txt       File này
+
+
+════════════════════════════════════════════════════════════════
+🚀 QUICK START
+════════════════════════════════════════════════════════════════
+
+Cách nhanh nhất:
+
+python sav_to_json.py Active.sav edit.json && notepad edit.json
+
+Sau khi edit xong:
+
+python json_to_sav.py edit.json Active.sav new.sav && python compare_sav.py Active.sav new.sav
+
+
+════════════════════════════════════════════════════════════════
+✨ DONE! Chúc bạn chỉnh settings thành công!
+════════════════════════════════════════════════════════════════
